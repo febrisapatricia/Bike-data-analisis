@@ -44,21 +44,6 @@ ax.set_xlabel('Hari Libur vs Hari Kerja', fontsize=12)
 ax.set_ylabel('Total Penggunaan Sepeda', fontsize=12)
 st.pyplot(fig)
 
-# Sidebar Filters
-st.sidebar.title("Filter Data")
-working_day_filter = st.sidebar.selectbox("Pilih Hari", ('Hari Kerja', 'Hari Libur'))
-if working_day_filter == 'Hari Kerja':
-    filtered_df = day_df[day_df['workingday'] == 1]
-else:
-    filtered_df = day_df[day_df['workingday'] == 0]
-
-# Display filtered data
-st.sidebar.subheader("Data Penyewaan Berdasarkan Hari")
-st.sidebar.write(filtered_df[['dteday', 'cnt']])
-
-st.sidebar.subheader("Total Penyewaan Sepeda")
-total_rentals = filtered_df['cnt'].sum()
-st.sidebar.write(f"Total Penyewaan: {total_rentals}")
 # Section for Conclusion
 st.subheader("Kesimpulan")
 st.write("""
